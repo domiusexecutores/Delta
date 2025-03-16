@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste com Botões</title>
+    <style>
+        /* Definindo o fundo com gradiente e luzes suaves */
+        body {
+            background: linear-gradient(45deg, rgba(50, 50, 150, 0.8), rgba(0, 0, 0, 0.6), rgba(50, 50, 200, 0.7));
+            font-family: 'Arial', sans-serif;
+            color: white;
+            text-align: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            background-color: #333;
+            background-size: 400% 400%;
+            animation: gradientAnim 15s ease infinite; /* Animação para o fundo */
+        }
+
+        /* Animação para o fundo mudar gradualmente */
+        @keyframes gradientAnim {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Estilo do título com gradiente */
+        h1 {
+            font-size: 30px; /* Tamanho menor */
+            margin-bottom: 30px;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(45deg, #ff6ec7, #ff8a00);
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: none;
+        }
+
+        /* Estilo dos botões */
+        .buttons-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .button {
+            background-color: rgba(255, 255, 255, 0.7);
+            color: black;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .button:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Efeito de neve */
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: #fff;
+            font-size: 24px;
+            user-select: none;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh); /* Vai até o final da tela */
+                opacity: 0.8;
+            }
+        }
+
+        /* Ajustando a animação da neve para cair mais suavemente e sem travar */
+        .snowflake:nth-child(1) {
+            left: 10%;
+            animation-duration: 10s;
+            animation-delay: 0s;
+            font-size: 18px;
+        }
+        .snowflake:nth-child(2) {
+            left: 20%;
+            animation-duration: 12s;
+            animation-delay: 2s;
+            font-size: 22px;
+        }
+        .snowflake:nth-child(3) {
+            left: 30%;
+            animation-duration: 9s;
+            animation-delay: 1s;
+            font-size: 25px;
+        }
+        .snowflake:nth-child(4) {
+            left: 40%;
+            animation-duration: 14s;
+            animation-delay: 4s;
+            font-size: 20px;
+        }
+        .snowflake:nth-child(5) {
+            left: 50%;
+            animation-duration: 11s;
+            animation-delay: 3s;
+            font-size: 23px;
+        }
+        .snowflake:nth-child(6) {
+            left: 60%;
+            animation-duration: 13s;
+            animation-delay: 5s;
+            font-size: 19px;
+        }
+        .snowflake:nth-child(7) {
+            left: 70%;
+            animation-duration: 10s;
+            animation-delay: 1s;
+            font-size: 21px;
+        }
+        .snowflake:nth-child(8) {
+            left: 80%;
+            animation-duration: 15s;
+            animation-delay: 6s;
+            font-size: 18px;
+        }
+        .snowflake:nth-child(9) {
+            left: 90%;
+            animation-duration: 12s;
+            animation-delay: 4s;
+            font-size: 24px;
+        }
+        /* Adicionando mais flocos de neve para aumentar a quantidade */
+        .snowflake:nth-child(10) {
+            left: 5%;
+            animation-duration: 13s;
+            animation-delay: 1s;
+            font-size: 19px;
+        }
+        .snowflake:nth-child(11) {
+            left: 15%;
+            animation-duration: 16s;
+            animation-delay: 2s;
+            font-size: 21px;
+        }
+        .snowflake:nth-child(12) {
+            left: 25%;
+            animation-duration: 14s;
+            animation-delay: 3s;
+            font-size: 22px;
+        }
+        .snowflake:nth-child(13) {
+            left: 35%;
+            animation-duration: 18s;
+            animation-delay: 4s;
+            font-size: 18px;
+        }
+        .snowflake:nth-child(14) {
+            left: 45%;
+            animation-duration: 11s;
+            animation-delay: 5s;
+            font-size: 25px;
+        }
+        .snowflake:nth-child(15) {
+            left: 55%;
+            animation-duration: 13s;
+            animation-delay: 2s;
+            font-size: 20px;
+        }
+        .snowflake:nth-child(16) {
+            left: 65%;
+            animation-duration: 10s;
+            animation-delay: 3s;
+            font-size: 22px;
+        }
+        .snowflake:nth-child(17) {
+            left: 75%;
+            animation-duration: 14s;
+            animation-delay: 6s;
+            font-size: 24px;
+        }
+        .snowflake:nth-child(18) {
+            left: 85%;
+            animation-duration: 17s;
+            animation-delay: 5s;
+            font-size: 19px;
+        }
+        .snowflake:nth-child(19) {
+            left: 95%;
+            animation-duration: 12s;
+            animation-delay: 1s;
+            font-size: 20px;
+        }
+        /* Continuando a aumentar a quantidade de neve */
+        .snowflake:nth-child(20) {
+            left: 10%;
+            animation-duration: 14s;
+            animation-delay: 3s;
+            font-size: 21px;
+        }
+        .snowflake:nth-child(21) {
+            left: 20%;
+            animation-duration: 11s;
+            animation-delay: 2s;
+            font-size: 19px;
+        }
+        .snowflake:nth-child(22) {
+            left: 30%;
+            animation-duration: 18s;
+            animation-delay: 5s;
+            font-size: 20px;
+        }
+        .snowflake:nth-child(23) {
+            left: 40%;
+            animation-duration: 12s;
+            animation-delay: 6s;
+            font-size: 23px;
+        }
+        .snowflake:nth-child(24) {
+            left: 50%;
+            animation-duration: 15s;
+            animation-delay: 1s;
+            font-size: 18px;
+        }
+    </style>
+    <!-- Fonte Poppins do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Baixe o Delta pelo link de sua preferência:</h1>
+    <div class="buttons-container">
+        <a href="https://www.mediafire.com" class="button" target="_blank">MediaFire</a>
+        <a href="https://www.gofile.io" class="button" target="_blank">GoFile</a>
+    </div>
+
+    <!-- Flocos de neve (aumentando a quantidade) -->
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❄</div>
+
+    <footer style="position: absolute; bottom: 10px; width: 100%; text-align: center; color: white;">
+        <p><a href="https://discord.gg/domius" target="_blank" style="color: white; font-size: 16px;">discord.gg/domius</a></p>
+    </footer>
+</body>
+</html>
